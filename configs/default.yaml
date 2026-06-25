@@ -1,0 +1,15 @@
+workflow:
+  max_parallel: 12
+memory:
+  segment_size_mb: 512
+  max_segments: 128
+network:
+  interface: 0.0.0.0
+  worker_port: 8080
+tracing:
+  enabled: true
+  sample_rate: 0.01
+security:
+  token_required: true
+  allowed_origins:
+    - 'http://localhost'
