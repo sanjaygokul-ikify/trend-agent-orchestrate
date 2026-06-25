@@ -1,0 +1,1 @@
+env/\n*.log\n__pycache__/\n*.pyc\n*.sqlite\n*.db\n*.env\n.vscode/\n*.md5\n*.sha1\n*.egg-info/\n__pypackages__/
