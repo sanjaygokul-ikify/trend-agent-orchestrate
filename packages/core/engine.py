@@ -23,8 +23,13 @@ class Engine:
                 for agent in self.agents.values():
                     if agent.trigger(step):
                         # Execute agent actions
-                        experience = agent.execute(step)
-                        self.experiences.append(experience)
+                        try:
+                            experience = agent.execute(step)
+                            self.experiences.append(experience)
+                        except Exception as e:
+                            # Handle agent execution errors
+                            logger.error(f"Error executing agent {agent.id}: {e}")
+                            raise AgentError(f"Error executing agent {agent.id}: {e}")
 
             # Return experiences
             return self.experiences
@@ -41,5 +46,9 @@ class Engine:
             for agent in self.agents.values():
                 if agent.trigger(step):
                     logger.info(f"Triggering agent: {agent.id}")
-                    experience = agent.execute(step)
-                    logger.info(f"Agent experience: {experience}")
+                    try:
+                        experience = agent.execute(step)
+                        logger.info(f"Agent experience: {experience}")
+                    except Exception as e:
+                        # Handle agent execution errors in debug mode
+                        logger.error(f"Error executing agent {agent.id} in debug mode: {e}")
