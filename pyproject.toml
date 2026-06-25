@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "agent-orchestrate"
+version = "0.1.0"
+description = "Distributed multi-agent orchestration framework with iterative workflow execution"
+authors = ["Principal Engineer <email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pynvim = "^0.2.2"
+pytest = "^7.2.0"
+rust = "^1.69"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
