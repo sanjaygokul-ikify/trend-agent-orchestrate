@@ -1,11 +1,11 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Callable
 
 @dataclass
 class Agent:
     id: str
-    trigger: callable
-    execute: callable
+    trigger: Callable[[object], bool]
+    execute: Callable[[object], Experience]
 
 @dataclass
 class Experience:
